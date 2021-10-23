@@ -5,7 +5,8 @@
   "repository": "https://github.com/KadaiKanriBot/KaKaBot",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "devDependencies": {
     "@types/node": "^16.11.4",
