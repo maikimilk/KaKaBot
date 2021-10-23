@@ -1,0 +1,10 @@
+{
+  "name": "kakabot-web",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KadaiKanriBot/KaKaBot",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.11.4"
+  }
+}
