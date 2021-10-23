@@ -1,0 +1,12 @@
+{
+  "name": "kakabot-server",
+  "version": "0.0.0",
+  "main": "app.ts",
+  "repository": "https://github.com/KadaiKanriBot/KaKaBot",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
