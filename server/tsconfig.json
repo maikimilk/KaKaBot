@@ -1,28 +1,21 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES2019",
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
     "sourceMap": true,
-    /* 部分的な.jsファイルの無効化 */
-    "allowJs": false,
-    /* 暗黙的にanyになる値をエラー */
-    "noImplicitAny": true,
-    /* クラス定義時、インスタンス変数の初期化が宣言時、もしくはコンストラクタのどちらでも行われていない場合にエラー */
-    "strictPropertyInitialization": true,
-    /* 宣言されたが使用されていない変数が存在する場合にコンパイルエラー */
-    "noUnusedLocals": true,
-    /* 関数の作成時、定義しているのに中身のコードで使用されない場合にコンパイルエラーにする */
-    "noUnusedParameters": true,
-    /* 関数内で条件分岐の条件によって明示的なreturnがされないルートがある場合、コンパイルエラー */
-    "noImplicitReturns": true,
-    /* fallthroughなcaseのうち、1行以上処理が存在しているにも関わらず脱出処理（breakやreturn）が無いものにエラー */
-    "noFallthroughCasesInSwitch": true,
-    /* import時にファイルパスの文字列で大文字小文字を区別するかどうかを指定する */
-    "forceConsistentCasingInFileNames": true,
-    /* import構文を使用できるようにする */
-    "esModuleInterop": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
 }
