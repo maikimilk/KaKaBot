@@ -2,19 +2,21 @@ import { Module } from '@nestjs/common';
 import {UserController} from "./user/user.controller";
 import {UserModule} from "./user/user.module";
 import {TypeOrmModule} from "@nestjs/typeorm";
+import { TypeormConfigService } from './typeorm-config/typeorm-config.service';
+import {ConfigModule} from "@nestjs/config";
 
 @Module({
   imports: [UserModule,
-  TypeOrmModule.forRoot({
-    type: 'postgres',       // DBの種類
-    port: 5432,             // 使用ポート
-    database: 'Kakabot',    // データベース名
-    host: 'localhost',      // DBホスト名
-    username: 'root',       // DBユーザ名
-    password: 'root',       // DBパスワード
-    synchronize: true,      // モデル同期(trueで同期)
-    entities: [__dirname + '/**/*.entity.{js,ts}']
-  })],
-  controllers: [UserController]
+    ConfigModule.forRoot({
+      envFilePath: [`.env/${process.env.NODE_ENV}.env`,'.env/default.env'],
+      isGlobal: true,
+    }),
+    // TypeORMの設定を非同期取得に変更
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useClass: TypeormConfigService,
+    }),],
+  controllers: [UserController],
+  providers: [TypeormConfigService]
 })
 export class AppModule {}
