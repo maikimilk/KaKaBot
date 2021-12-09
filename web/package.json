@@ -6,11 +6,19 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/react": "^6.3.12",
     "@types/node": "^16.11.4",
     "@types/react": "^17.0.31",
+    "babel-loader": "^8.2.3",
     "html-webpack-plugin": "^5.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -19,5 +27,13 @@
     "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/icons-material": "^5.2.1",
+    "@mui/material": "^5.1.0"
   }
 }

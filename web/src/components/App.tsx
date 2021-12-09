@@ -1,8 +1,11 @@
 import React, {FC} from "react";
+import PermanentDrawerLeft from "./organisms/Drawer";
 
 const App: FC = () => {
   return (
-    <>Hello World!!</>
+      <React.Fragment>
+          <PermanentDrawerLeft />
+      </React.Fragment>
   )
 }
 
