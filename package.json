@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@mui/material": "^5.1.0",
+    "@nestjs/cli": "^8.1.4",
+    "add": "^2.0.6",
+    "global": "^4.4.0",
     "yarn": "^1.22.17"
   }
 }

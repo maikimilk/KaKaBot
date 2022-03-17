@@ -1,28 +1,56 @@
 import {
-  BaseEntity,
-  BeforeInsert,
   Column,
+  CreateDateColumn,
   Entity,
-  PrimaryColumn,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { v4 } from 'uuid';
+import { Groups } from '../groups/groups.entity';
+import { generateUuid } from '../util/uuid';
+import { getHash } from '../util/getHash';
 
 @Entity('user')
-export class User extends BaseEntity {
-  @PrimaryColumn('uuid')
-  uuid: string;
+export class User {
+  @PrimaryGeneratedColumn()
+  readonly id: number;
 
   @Column()
-  id: string;
+  uuid: string;
 
   @Column()
   displayName: string;
 
   @Column()
+  email: string;
+
+  @Column()
   password: string;
 
-  @BeforeInsert()
-  addId() {
-    this.uuid = v4();
+  @ManyToMany(() => Groups, (group) => group.users)
+  @JoinTable()
+  groups: Groups[];
+
+  @CreateDateColumn()
+  readonly createdAt: Date;
+
+  @UpdateDateColumn()
+  readonly updatedAt: Date;
+
+  public static create(
+    password: string,
+    displayName: string,
+    email: string,
+  ): Omit<User, 'id' | 'createdAt' | 'updatedAt'> {
+    const newUser = new User();
+
+    newUser.uuid = generateUuid();
+    newUser.password = getHash(password);
+    newUser.displayName = displayName;
+    newUser.email = email;
+    newUser.groups = [];
+
+    return newUser;
   }
 }
